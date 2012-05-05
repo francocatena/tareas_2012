@@ -2,7 +2,7 @@ class TareasController < ApplicationController
   # GET /tareas
   # GET /tareas.json
   def index
-    @tareas = Tarea.all
+    @tareas = Tarea.order('nombre').all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.save
-        format.html { redirect_to @tarea, notice: 'Tarea was successfully created.' }
+        format.html { redirect_to @tarea, notice: 'Tarea creada' }
         format.json { render json: @tarea, status: :created, location: @tarea }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.update_attributes(params[:tarea])
-        format.html { redirect_to @tarea, notice: 'Tarea was successfully updated.' }
+        format.html { redirect_to @tarea, notice: 'Tarea actualizada' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

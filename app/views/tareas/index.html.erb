@@ -1,23 +1,19 @@
-<h1>Listing tareas</h1>
+<h1>Listado de tareas</h1>
 
 <table>
   <tr>
     <th>Nombre</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Detalles</th>
   </tr>
 
 <% @tareas.each do |tarea| %>
   <tr>
-    <td><%= tarea.nombre %></td>
-    <td><%= link_to 'Show', tarea %></td>
-    <td><%= link_to 'Edit', edit_tarea_path(tarea) %></td>
-    <td><%= link_to 'Destroy', tarea, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to tarea.nombre, tarea %></td>
+    <td><%= truncate tarea.detalles, length: 25 %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Tarea', new_tarea_path %>
+<%= link_to 'Nueva tarea', new_tarea_path %>

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421153156) do
+ActiveRecord::Schema.define(:version => 20120425182654) do
 
   create_table "tareas", :force => true do |t|
     t.string   "nombre"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "detalles"
   end
 
 end

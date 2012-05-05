@@ -1,7 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+ir_al_curso:
+  nombre: 'Ir al curso'
+  detalles: 'Todos los sábados ir al curso de Rails'
 
-one:
-  nombre: MyString
-
-two:
-  nombre: MyString
+lavarme_los_dientes:
+  nombre: 'Lavarme los dientes'
+  detalles: 'Todos los días lavarme los dientes 3 veces'
