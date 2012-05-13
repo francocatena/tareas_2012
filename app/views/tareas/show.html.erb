@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @tarea.nombre %></h1>
+<section>
+  <h1><%= @tarea.nombre %></h1>
 
-<p><%= @tarea.detalles %></p>
+  <p><%= @tarea.detalles %></p>
+</section>
 
-<%= link_to 'Editar', edit_tarea_path(@tarea) %> |
-<%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |
-<%= link_to 'Volver', tareas_path %>
+<nav>
+  <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
+  <%= link_to 'Eliminar', @tarea, confirm: '¿Seguro?', method: :delete %> |
+  <%= link_to 'Volver', tareas_path %>
+</nav>

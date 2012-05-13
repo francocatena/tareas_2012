@@ -5,15 +5,16 @@
     <th>Nombre</th>
     <th>Detalles</th>
   </tr>
-
-<% @tareas.each do |tarea| %>
-  <tr>
-    <td><%= link_to tarea.nombre, tarea %></td>
-    <td><%= truncate tarea.detalles, length: 25 %></td>
-  </tr>
-<% end %>
+  <% @tareas.each do |tarea| %>
+    <tr>
+      <td><%= link_to tarea.nombre, tarea %></td>
+      <td><%= truncate tarea.detalles, length: 25 %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nueva tarea', new_tarea_path %>
+<nav>
+  <%= link_to 'Nueva tarea', new_tarea_path %>
+</nav>
