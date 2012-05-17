@@ -2,7 +2,7 @@ class TareasController < ApplicationController
   # GET /tareas
   # GET /tareas.json
   def index
-    @tareas = Tarea.order('nombre').all
+    @tareas = Tarea.page(params[:page]).order('fecha ASC')
 
     respond_to do |format|
       format.html # index.html.erb

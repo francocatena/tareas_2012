@@ -3,17 +3,21 @@
 <table>
   <tr>
     <th>Nombre</th>
+    <th>Fecha</th>
     <th>Detalles</th>
   </tr>
   <% @tareas.each do |tarea| %>
     <tr>
       <td><%= link_to tarea.nombre, tarea %></td>
+      <td><%= tarea.fecha %></td>
       <td><%= truncate tarea.detalles, length: 25 %></td>
     </tr>
   <% end %>
 </table>
 
 <br />
+
+<%= will_paginate @tareas %>
 
 <nav>
   <%= link_to 'Nueva tarea', new_tarea_path %>

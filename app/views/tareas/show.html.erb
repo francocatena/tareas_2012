@@ -2,6 +2,10 @@
 
 <section>
   <h1><%= @tarea.nombre %></h1>
+  
+  <% if @tarea.fecha %>
+    <p>Se debe hacer para el <%= @tarea.fecha %></p>
+  <% end %>
 
   <p><%= @tarea.detalles %></p>
 </section>
