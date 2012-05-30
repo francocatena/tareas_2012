@@ -20,6 +20,10 @@
     <%= f.date_select :fecha, use_month_numbers: true, order: [:day, :month, :year] %>
   </div>
   <div class="field">
+    <%= f.label :responsable_id %><br />
+    <%= show_tarea_responsable_select(f) %>
+  </div>
+  <div class="field">
     <%= f.label :detalles %><br />
     <%= f.text_area :detalles, rows: 5 %>
   </div>

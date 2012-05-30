@@ -11,14 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517152300) do
+ActiveRecord::Schema.define(:version => 20120530003315) do
+
+  create_table "responsables", :force => true do |t|
+    t.string   "nombre"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "tareas", :force => true do |t|
     t.string   "nombre"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.text     "detalles"
     t.date     "fecha"
+    t.integer  "responsable_id"
   end
 
 end

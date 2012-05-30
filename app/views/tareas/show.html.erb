@@ -7,6 +7,10 @@
     <p>Se debe hacer para el <%= @tarea.fecha %></p>
   <% end %>
 
+  <% if @tarea.responsable %>
+    <p>La debe hacer <strong><%= @tarea.responsable %></strong></p>
+  <% end %>
+
   <p><%= @tarea.detalles %></p>
 </section>
 
