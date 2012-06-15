@@ -1,8 +1,9 @@
-<h1>Editar responsable</h1>
+<div class="page-header">
+  <h1>Editar responsable</h1>
+  <nav>
+    <%= link_to 'Ver', @responsable %> |
+    <%= link_to 'Volver', responsables_path %>
+  </nav>
+</div>
 
 <%= render 'form' %>
-
-<nav>
-  <%= link_to 'Ver', @responsable %> |
-  <%= link_to 'Volver', responsables_path %>
-</nav>

@@ -1,6 +1,9 @@
-<h1>Listado de tareas</h1>
-
-<table>
+<table class="table table-bordered table-striped table-condensed">
+  <caption>
+    <br />
+    <h2>Listado de tareas</h2>
+    <br />
+  </caption>
   <tr>
     <th>Nombre</th>
     <th>Fecha</th>
@@ -20,5 +23,5 @@
 <%= will_paginate @tareas %>
 
 <nav>
-  <%= link_to 'Nueva tarea', new_tarea_path %>
+  <%= link_to 'Nueva tarea', new_tarea_path, class: 'btn btn-primary' %>
 </nav>

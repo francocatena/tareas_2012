@@ -1,8 +1,9 @@
-<h1>Editar tarea</h1>
+<div class="page-header">
+  <h1>Editar tarea</h1>
+  <nav>
+    <%= link_to 'Ver', @tarea %> |
+    <%= link_to 'Volver', tareas_path %>
+  </nav>
+</div>
 
 <%= render 'form' %>
-
-<nav>
-  <%= link_to 'Ver', @tarea %> |
-  <%= link_to 'Volver', tareas_path %>
-</nav>

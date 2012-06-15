@@ -8,6 +8,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/menu' %>
+      <%= yield %>
+      <%= render 'shared/notice' if flash.notice %>
+    </div>
   </body>
 </html>

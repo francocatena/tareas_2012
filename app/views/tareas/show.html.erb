@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<br />
 
 <section>
   <h1><%= @tarea.nombre %></h1>
@@ -14,8 +14,11 @@
   <p><%= @tarea.detalles %></p>
 </section>
 
-<nav>
-  <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
-  <%= link_to 'Eliminar', @tarea, confirm: '¿Seguro?', method: :delete %> |
-  <%= link_to 'Volver', tareas_path %>
+<nav class="form-actions">
+  <%= link_to 'Editar', edit_tarea_path(@tarea), class: 'btn btn-primary' %>
+  
+  <div class="pull-right">
+    <%= link_to 'Eliminar', @tarea, confirm: '¿Seguro?', method: :delete %> |
+    <%= link_to 'Volver', tareas_path %>
+  </div>
 </nav>

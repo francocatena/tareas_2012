@@ -1,6 +1,10 @@
-<h1>Listado de responsables</h1>
-
-<table>
+<table class="table table-bordered table-striped table-condensed">
+  <caption>
+    <br />
+    <h2>Listado de responsables</h2>
+    <br />
+  </caption>
+  
   <tr>
     <th>Nombre</th>
     <th>Correo</th>
@@ -18,5 +22,5 @@
 <%= will_paginate @responsables %>
 
 <nav>
-  <%= link_to 'Nuevo responsable', new_responsable_path %>
+  <%= link_to 'Nuevo responsable', new_responsable_path, class: 'btn btn-primary' %>
 </nav>

@@ -1,25 +1,21 @@
-<%= form_for(@responsable) do |f| %>
+<%= simple_form_for(@responsable) do |f| %>
   <% if @responsable.errors.any? %>
-    <div id="error_explanation">
-      <h2>Ups, hay algunos errores que deberías ver:</h2>
-
-      <ul>
-      <% @responsable.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+    <div id="error_explanation" class="alert alert-error">
+      <h4 class="alert-heading">
+        Ups, hay algunos errores que deberías ver...
+      </h4>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
+  <%= f.input :nombre %>
+  <%= f.input :email %>
+  
   <div class="actions">
-    <%= f.submit @responsable.new_record? ? 'Crear Responsable' : 'Actualizar Responsable' %>
+    <%= f.button(
+      :submit,
+      @responsable.new_record? ? 'Crear Responsable' : 'Actualizar Responsable',
+      class: 'btn-primary'
+    ) %>
   </div>
 <% end %>

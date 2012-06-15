@@ -1,33 +1,23 @@
-<%= form_for(@tarea) do |f| %>
+<%= simple_form_for(@tarea) do |f| %>
   <% if @tarea.errors.any? %>
-    <div id="error_explanation">
-      <h2>Ups, hay algunos errores que deberías ver:</h2>
-
-      <ul>
-      <% @tarea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+    <div id="error_explanation" class="alert alert-error">
+      <h4 class="alert-heading">
+        Ups, hay algunos errores que deberías ver...
+      </h4>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br />
-    <%= f.date_select :fecha, use_month_numbers: true, order: [:day, :month, :year] %>
-  </div>
-  <div class="field">
-    <%= f.label :responsable_id %><br />
-    <%= show_tarea_responsable_select(f) %>
-  </div>
-  <div class="field">
-    <%= f.label :detalles %><br />
-    <%= f.text_area :detalles, rows: 5 %>
-  </div>
-  <div class="actions">
-    <%= f.submit @tarea.new_record? ? 'Crear Tarea' : 'Actualizar Tarea' %>
+  <%= f.input :nombre %>
+  <%= f.input :fecha, use_month_numbers: true, order: [:day, :month, :year] %>
+  <%= show_tarea_responsable_select(f) %>
+  <%= f.input :detalles, input_html: { rows: 5 } %>
+
+  <div class="form-actions">
+    <%= f.button(
+      :submit,
+      @tarea.new_record? ? 'Crear Tarea' : 'Actualizar Tarea',
+      class: 'btn-primary'
+    ) %>
   </div>
 <% end %>

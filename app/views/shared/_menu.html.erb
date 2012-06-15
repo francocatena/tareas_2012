@@ -1,0 +1,27 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        +
+      </a>
+      
+      <a class="brand" href="#">Tareas</a>
+ 
+      <div class="nav-collapse">
+        <ul class="nav">
+          <%= content_tag(
+            :li,
+            link_to('Tareas', tareas_path),
+            class: ('active' if controller_name == 'tareas')
+          ) %>
+          <%= content_tag(
+            :li,
+            link_to('Responsables', responsables_path),
+            class: ('active' if controller_name == 'responsables')
+          ) %>
+        </ul>
+      </div>
+ 
+    </div>
+  </div>
+</div>
