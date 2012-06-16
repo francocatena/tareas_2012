@@ -1,4 +1,8 @@
 Tareas::Application.routes.draw do
+  match 'sesiones' => 'sesiones#new', as: 'nueva_sesion', via: :get
+  match 'sesiones' => 'sesiones#create', via: :post
+  match 'sesiones' => 'sesiones#destroy', as: 'cerrar_sesion', via: :delete
+
   resources :responsables
 
   resources :tareas
@@ -52,7 +56,7 @@ Tareas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root to: 'sesiones#new'
 
   # See how all your routes lay out with "rake routes"
 

@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530003315) do
+ActiveRecord::Schema.define(:version => 20120615185448) do
 
   create_table "responsables", :force => true do |t|
     t.string   "nombre"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "clave_cifrada"
+    t.string   "salt"
   end
+
+  add_index "responsables", ["email"], :name => "index_responsables_on_email"
 
   create_table "tareas", :force => true do |t|
     t.string   "nombre"

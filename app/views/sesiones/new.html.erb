@@ -1,0 +1,13 @@
+<br />
+
+<div class="row">
+  <div class="span4 offset4 well">
+    <%= simple_form_for(@responsable, url: nueva_sesion_path, method: :post) do |f| %>
+      <%= f.input :email, input_html: { class: 'span4', autofocus: true } %>
+      <%= f.input :clave, as: :password, input_html: { class: 'span4' } %>
+
+      <hr />
+      <%= f.button :submit, 'Ingresar', class: 'btn-primary' %>
+    <% end %>
+  </div>
+</div>

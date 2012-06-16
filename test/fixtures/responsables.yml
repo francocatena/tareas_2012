@@ -1,7 +1,11 @@
 franco:
   nombre: Franco
   email: fc@gmail.com
+  salt: <%= salt = Digest::SHA512.hexdigest(rand.to_s) %>
+  clave_cifrada: <%= Digest::SHA512.hexdigest(salt + '123') %>
 
 juan:
   nombre: Juan
   email: jc@gmail.com
+  salt: <%= salt = Digest::SHA512.hexdigest(rand.to_s) %>
+  clave_cifrada: <%= Digest::SHA512.hexdigest(salt + '123') %>

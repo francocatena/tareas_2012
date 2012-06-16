@@ -9,9 +9,9 @@
   </head>
   <body>
     <div class="container">
-      <%= render 'shared/menu' %>
+      <%= render 'comun/menu' if responsable_actual %>
       <%= yield %>
-      <%= render 'shared/notice' if flash.notice %>
+      <%= render 'comun/notice' if flash.notice %>
     </div>
   </body>
 </html>
