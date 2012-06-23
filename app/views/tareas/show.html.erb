@@ -18,7 +18,7 @@
   <%= link_to 'Editar', edit_tarea_path(@tarea), class: 'btn btn-primary' %>
   
   <div class="pull-right">
-    <%= link_to 'Eliminar', @tarea, confirm: '¿Seguro?', method: :delete %> |
+    <%= link_to 'Eliminar', @tarea, data: { confirm: '¿Seguro?' }, method: :delete %> |
     <%= link_to 'Volver', tareas_path %>
   </div>
 </nav>

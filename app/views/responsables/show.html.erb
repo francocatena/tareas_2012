@@ -6,6 +6,6 @@
 
 <nav class="form-actions">
   <%= link_to 'Editar', edit_responsable_path(@responsable) %> |
-  <%= link_to 'Eliminar', @responsable, confirm: '¿Seguro?', method: :delete %> |
+  <%= link_to 'Eliminar', @responsable, data: { confirm: '¿Seguro?' }, method: :delete %> |
   <%= link_to 'Volver', responsables_path %>
 </nav>

@@ -2,48 +2,54 @@ require 'test_helper'
 
 class TareasControllerTest < ActionController::TestCase
   setup do
-    @tarea = tareas(:one)
+    @tarea = tareas(:ir_al_curso)
+    identificarse
   end
 
-  test "should get index" do
+  test 'deberia mostrar index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:tareas)
   end
 
-  test "should get new" do
+  test 'deberia mostrar new' do
     get :new
     assert_response :success
   end
 
-  test "should create tarea" do
+  test 'deberia crear una tarea' do
     assert_difference('Tarea.count') do
-      post :create, tarea: { nombre: @tarea.nombre }
+      post :create, tarea: {
+        nombre: 'Ir al asado',
+        detalles: 'Es en el quincho de la UTN'
+      }
     end
 
-    assert_redirected_to tarea_path(assigns(:tarea))
+    assert_redirected_to tarea_url(assigns(:tarea))
   end
 
-  test "should show tarea" do
+  test 'deberia mostrar show' do
     get :show, id: @tarea
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'deberia mostrar edit' do
     get :edit, id: @tarea
     assert_response :success
   end
 
-  test "should update tarea" do
-    put :update, id: @tarea, tarea: { nombre: @tarea.nombre }
-    assert_redirected_to tarea_path(assigns(:tarea))
+  test 'deberia actualizar una tarea' do
+    put :update, id: @tarea, tarea: { nombre: 'Ir si o si al curso' }
+
+    assert_redirected_to tarea_url(assigns(:tarea))
+    assert_equal 'Ir si o si al curso', @tarea.reload.nombre
   end
 
-  test "should destroy tarea" do
+  test 'deberia eliminar una tarea' do
     assert_difference('Tarea.count', -1) do
       delete :destroy, id: @tarea
     end
 
-    assert_redirected_to tareas_path
+    assert_redirected_to tareas_url
   end
 end
