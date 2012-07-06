@@ -52,4 +52,23 @@ class TareasControllerTest < ActionController::TestCase
 
     assert_redirected_to tareas_url
   end
+
+  test 'deberia marcar como completa una tarea' do
+    assert !@tarea.completa
+
+    put :completa, id: @tarea
+
+    assert_redirected_to tareas_url
+    assert @tarea.reload.completa
+  end
+  
+  test 'deberia marcar como completa una tarea por ajax' do
+    assert !@tarea.completa
+
+    xhr :put, :completa, id: @tarea
+
+    assert_response :success
+    assert_template 'tareas/_tarea'
+    assert @tarea.reload.completa
+  end
 end
