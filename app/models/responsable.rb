@@ -10,7 +10,7 @@ class Responsable < ActiveRecord::Base
 
   attr_accessible :nombre, :email, :clave
 
-  validates :nombre, presence: { message: 'no debe estar en blanco' }
+  validates :nombre, presence: true
 
   has_many :tareas, dependent: :destroy
 

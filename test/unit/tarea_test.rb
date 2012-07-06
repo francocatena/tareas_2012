@@ -9,6 +9,14 @@ class TareaTest < ActiveSupport::TestCase
     @tarea.nombre = ''
     assert @tarea.invalid?
     assert_equal 1, @tarea.errors.size
-    assert_equal 'no debe estar en blanco', @tarea.errors[:nombre][0]
+    assert_equal I18n.t('errors.messages.blank'), @tarea.errors[:nombre].first
+  end
+
+  test 'marcar como completa una tarea' do
+    assert !@tarea.completa
+
+    assert @tarea.completa!
+
+    assert_equal true, @tarea.reload.completa
   end
 end

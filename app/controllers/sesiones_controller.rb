@@ -22,9 +22,9 @@ class SesionesController < ApplicationController
       if @responsable && @responsable.clave_valida?(clave)
         session[:responsable_id] = @responsable.id
 
-        format.html { redirect_to(tareas_url, notice: 'Ingreso correcto') }
+        format.html { redirect_to(tareas_url, notice: t('sesiones.ingreso_correcto')) }
       else
-        flash.now.notice = 'Usuario y/o contraseña incorrecto'
+        flash.now.notice = t('sesiones.ingreso_incorrecto')
 
         format.html { render action: 'new' }
       end
@@ -35,7 +35,7 @@ class SesionesController < ApplicationController
     reset_session
 
     respond_to do |format|
-      format.html { redirect_to nueva_sesion_url, notice: 'Sesión cerrada' }
+      format.html { redirect_to nueva_sesion_url, notice: t('sesiones.sesion_cerrada') }
     end
   end
 end

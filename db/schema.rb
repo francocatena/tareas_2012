@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615185448) do
+ActiveRecord::Schema.define(:version => 20120706173526) do
 
   create_table "responsables", :force => true do |t|
     t.string   "nombre"
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(:version => 20120615185448) do
 
   create_table "tareas", :force => true do |t|
     t.string   "nombre"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.text     "detalles"
     t.date     "fecha"
     t.integer  "responsable_id"
+    t.boolean  "completa",       :default => false, :null => false
   end
 
 end

@@ -5,7 +5,9 @@ Tareas::Application.routes.draw do
 
   resources :responsables
 
-  resources :tareas
+  resources :tareas do
+    put :completa, on: :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,7 +3,7 @@ module TareasHelper
     form.input(
       :responsable_id,
       collection: Responsable.all.map { |r| [r.to_s, r.id] },
-      include_blank: true
+      prompt: true
     )
   end
 end

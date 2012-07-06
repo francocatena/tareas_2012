@@ -4,21 +4,27 @@
   <h1><%= @tarea.nombre %></h1>
   
   <% if @tarea.fecha %>
-    <p>Se debe hacer para el <%= @tarea.fecha %></p>
+    <p>
+      <strong><%= Tarea.human_attribute_name 'fecha' %></strong>:
+      <%= l @tarea.fecha, format: :long %>
+    </p>
   <% end %>
 
   <% if @tarea.responsable %>
-    <p>La debe hacer <strong><%= @tarea.responsable %></strong></p>
+    <p>
+      <strong><%= Tarea.human_attribute_name 'responsable_id' %></strong>:
+      <%= @tarea.responsable %>
+    </p>
   <% end %>
 
-  <p><%= @tarea.detalles %></p>
+  <%= simple_format @tarea.detalles %>
 </section>
 
 <nav class="form-actions">
-  <%= link_to 'Editar', edit_tarea_path(@tarea), class: 'btn btn-primary' %>
+  <%= link_to t('etiqueta.editar'), edit_tarea_path(@tarea), class: 'btn btn-primary' %>
   
   <div class="pull-right">
-    <%= link_to 'Eliminar', @tarea, data: { confirm: '¿Seguro?' }, method: :delete %> |
-    <%= link_to 'Volver', tareas_path %>
+    <%= link_to t('etiqueta.eliminar'), @tarea, data: { confirm: t('mensaje.confirmacion') }, method: :delete %> |
+    <%= link_to t('etiqueta.volver'), tareas_path %>
   </div>
 </nav>

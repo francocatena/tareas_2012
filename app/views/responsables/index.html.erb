@@ -1,13 +1,13 @@
 <table class="table table-bordered table-striped table-condensed">
   <caption>
     <br />
-    <h2>Listado de responsables</h2>
+    <h2><%= t('.titulo') %></h2>
     <br />
   </caption>
   
   <tr>
-    <th>Nombre</th>
-    <th>Correo</th>
+    <th><%= Responsable.human_attribute_name 'nombre' %></th>
+    <th><%= Responsable.human_attribute_name 'email' %></th>
   </tr>
   <% @responsables.each do |responsable| %>
     <tr>
@@ -16,11 +16,10 @@
     </tr>
   <% end %>
 </table>
-
 <br />
 
 <%= will_paginate @responsables %>
 
 <nav>
-  <%= link_to 'Nuevo responsable', new_responsable_path, class: 'btn btn-primary' %>
+  <%= link_to t('.nuevo'), new_responsable_path, class: 'btn btn-primary' %>
 </nav>

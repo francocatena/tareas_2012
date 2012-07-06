@@ -15,6 +15,10 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development do
+  gem 'puma'
+end
+
 group :test do
   gem 'minitest'
   gem 'turn'

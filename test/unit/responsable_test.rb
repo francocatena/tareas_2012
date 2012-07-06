@@ -10,7 +10,8 @@ class ResponsableTest < ActiveSupport::TestCase
     
     assert @responsable.invalid?
     assert_equal 1, @responsable.errors.size
-    assert_equal 'no debe estar en blanco', @responsable.errors[:nombre].first
+    assert_equal I18n.t('errors.messages.blank'),
+      @responsable.errors[:nombre].first
   end
 
   test 'el salt y la clave cifrada se asignan cuando creamos un responsable' do

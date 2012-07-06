@@ -1,0 +1,68 @@
+es:
+  attributes:
+    created_at: 'Creación'
+    updated_at: 'Actualización'
+
+  models:
+    responsable: 'Responsable'
+    tarea: 'Tarea'
+
+  activerecord:
+    attributes:
+      responsable:
+        nombre: 'Nombre'
+        email: 'Correo'
+        clave: 'Clave'
+      tarea:
+        nombre: 'Nombre'
+        detalles: 'Detalles'
+        fecha: 'Fecha'
+        responsable_id: 'Responsable'
+  
+  mensaje:
+    confirmacion: '¿Está seguro?'
+  
+  etiqueta:
+    editar: 'Editar'
+    eliminar: 'Eliminar'
+    salir: 'Salir'
+    ver: 'Ver'
+    volver: 'Volver'
+  
+  responsables:
+    creada: 'Responsable creado'
+    actualizada: 'Responsable actualizado'
+
+    index:
+      titulo: 'Listado de responsables'
+      nuevo: 'Crear responsable'
+    new:
+      titulo: 'Nuevo responsable'
+    edit:
+      titulo: 'Modificar responsable'
+    show:
+      titulo: 'Detalles de responsable'
+
+  sesiones:
+    ingreso_correcto: 'Bienvenido'
+    ingreso_incorrecto: 'Usuario y/o clave inválida'
+    sesion_cerrada: 'Sesión cerrada correctamente'
+
+    new:
+      ingresar: 'Ingresar'
+
+  tareas:
+    creada: 'Tarea creada'
+    actualizada: 'Tarea actualizada'
+
+    index:
+      titulo: 'Listado de tareas'
+      nueva: 'Crear tarea'
+    new:
+      titulo: 'Nueva tarea'
+    edit:
+      titulo: 'Modificar tarea'
+    show:
+      titulo: 'Detalles de tarea'
+    tarea:
+      completa: 'Marcar como completa'

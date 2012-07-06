@@ -1,6 +1,8 @@
 class TareasController < ApplicationController
   before_filter :requerir_responsable
 
+  layout ->(c) { c.request.xhr? ? false : 'application' }
+
   # GET /tareas
   # GET /tareas.json
   def index
@@ -46,7 +48,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.save
-        format.html { redirect_to @tarea, notice: 'Tarea creada' }
+        format.html { redirect_to @tarea, notice: t('tareas.creada') }
         format.json { render json: @tarea, status: :created, location: @tarea }
       else
         format.html { render action: "new" }
@@ -62,7 +64,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.update_attributes(params[:tarea])
-        format.html { redirect_to @tarea, notice: 'Tarea actualizada' }
+        format.html { redirect_to @tarea, notice: t('tareas.actualizada') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,6 +82,22 @@ class TareasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tareas_url }
       format.json { head :no_content }
+    end
+  end
+
+  # PUT /tareas/1/completa
+  # PUT /tareas/1/completa.json
+  def completa
+    @tarea = Tarea.find(params[:id])
+    @tarea.completa!
+
+    if request.xhr?
+      render partial: 'tarea', locals: { tarea: @tarea }
+    else
+      respond_to do |format|
+        format.html { redirect_to tareas_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
