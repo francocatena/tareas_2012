@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'foreigner'
 gem 'simple_form'
+gem 'whenever', require: false
 
 group :assets do
   gem 'sass-rails'

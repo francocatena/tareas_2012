@@ -19,4 +19,12 @@ class TareaTest < ActiveSupport::TestCase
 
     assert_equal true, @tarea.reload.completa
   end
+
+  test 'se deben notificar las tareas por vencer' do
+    ActionMailer::Base.delivery_method = :test
+
+    assert_difference 'ActionMailer::Base.deliveries.size' do
+      Tarea.recordar_vencimientos
+    end
+  end
 end

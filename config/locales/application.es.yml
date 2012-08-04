@@ -66,3 +66,7 @@ es:
       titulo: 'Detalles de tarea'
     tarea:
       completa: 'Marcar como completa'
+
+  tareas_mailer:
+    tarea_cercana:
+      subject: '¡Ya se vence!'
