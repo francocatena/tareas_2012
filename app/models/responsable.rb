@@ -18,6 +18,10 @@ class Responsable < ActiveRecord::Base
     self.nombre
   end
 
+  def as_json(options = {})
+    super({ only: [:id, :nombre] }.merge(options))
+  end
+
   def generar_salt
     self.salt = Digest::SHA512.hexdigest(rand.to_s)
   end
@@ -34,5 +38,9 @@ class Responsable < ActiveRecord::Base
 
   def clave_valida?(clave)
     self.clave_cifrada == cifrar_clave(clave)
+  end
+
+  def self.con_nombre(nombre)
+    where("LOWER(#{table_name}.nombre) LIKE ?", "#{nombre}%".downcase)
   end
 end

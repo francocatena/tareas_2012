@@ -5,6 +5,7 @@ class ResponsablesController < ApplicationController
   # GET /responsables.json
   def index
     @responsables = Responsable.order('nombre ASC').page(params[:page])
+    @responsables = @responsables.con_nombre(params[:q]) if params[:q].present?
 
     respond_to do |format|
       format.html # index.html.erb

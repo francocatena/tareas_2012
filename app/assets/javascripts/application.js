@@ -14,5 +14,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require autocomplete
 //= require responsables
 //= require tareas

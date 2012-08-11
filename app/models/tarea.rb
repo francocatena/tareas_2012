@@ -1,5 +1,7 @@
 class Tarea < ActiveRecord::Base
-  attr_accessible :nombre, :detalles, :fecha, :completa, :responsable_id
+  attr_accessor :auto_responsable
+  attr_accessible :nombre, :detalles, :fecha, :completa, :responsable_id,
+    :auto_responsable
 
   validates :nombre, presence: true
 

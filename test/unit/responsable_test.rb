@@ -25,4 +25,11 @@ class ResponsableTest < ActiveSupport::TestCase
     assert @responsable.clave_cifrada.present?
     assert @responsable.clave_valida?('123')
   end
+
+  test 'busqueda por nombre parcial' do
+    responsables = Responsable.con_nombre('fran')
+
+    assert_equal 1, responsables.size
+    assert responsables.all? { |r| r.nombre =~ /\Afran/i }
+  end
 end

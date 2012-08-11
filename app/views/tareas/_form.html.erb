@@ -3,7 +3,17 @@
 
   <%= f.input :nombre %>
   <%= f.input :fecha %>
-  <%= show_tarea_responsable_select(f) %>
+  <%= f.input(
+    :auto_responsable, label: Tarea.human_attribute_name('responsable_id'),
+    input_html: {
+      data: {
+        'autocomplete-field' => true,
+        'autocomplete-for' => '#tarea_responsable_id',
+        'autocomplete-url' => responsables_path(format: :json)
+      }
+    }
+  ) %>
+  <%= f.input :responsable_id, as: :hidden %>
   <%= f.input :detalles, input_html: { rows: 5 } %>
 
   <div class="form-actions">
