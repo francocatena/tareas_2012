@@ -8,11 +8,13 @@
   <tr>
     <th><%= Responsable.human_attribute_name 'nombre' %></th>
     <th><%= Responsable.human_attribute_name 'email' %></th>
+    <th><%= Tarea.model_name.human(count: 0) %></th>
   </tr>
   <% @responsables.each do |responsable| %>
     <tr>
       <td><%= link_to responsable.nombre, responsable %></td>
       <td><%= mail_to responsable.email %></td>
+      <td><%= link_to t('.tareas'), responsable_tareas_path(responsable) %></td>
     </tr>
   <% end %>
 </table>

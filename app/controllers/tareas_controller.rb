@@ -6,7 +6,14 @@ class TareasController < ApplicationController
   # GET /tareas
   # GET /tareas.json
   def index
-    @tareas = Tarea.page(params[:page]).order('fecha ASC')
+    if params[:responsable_id]
+      @responsable = Responsable.find(params[:responsable_id])
+      @tareas = @responsable.tareas
+    else
+      @tareas = Tarea.scoped
+    end
+
+    @tareas = @tareas.page(params[:page]).order('fecha ASC')
 
     respond_to do |format|
       format.html # index.html.erb

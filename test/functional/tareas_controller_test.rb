@@ -12,6 +12,15 @@ class TareasControllerTest < ActionController::TestCase
     assert_not_nil assigns(:tareas)
   end
 
+  test 'deberia mostrar index por responsable' do
+    responsable = responsables(:franco)
+    get :index, responsable_id: responsable.to_param
+    assert_response :success
+    assert_not_nil assigns(:tareas)
+    assert assigns(:tareas).size > 0
+    assert assigns(:tareas).all? { |t| t.responsable_id == responsable.id }
+  end
+
   test 'deberia mostrar new' do
     get :new
     assert_response :success

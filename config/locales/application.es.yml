@@ -3,11 +3,15 @@ es:
     created_at: 'Creación'
     updated_at: 'Actualización'
 
-  models:
-    responsable: 'Responsable'
-    tarea: 'Tarea'
-
   activerecord:
+    models:
+      responsable:
+        one: 'Responsable'
+        other: 'Responsables'
+      tarea:
+        one: 'Tarea'
+        other: 'Tareas'
+
     attributes:
       responsable:
         nombre: 'Nombre'
@@ -36,6 +40,7 @@ es:
     index:
       titulo: 'Listado de responsables'
       nuevo: 'Crear responsable'
+      tareas: 'Ver tareas'
     new:
       titulo: 'Nuevo responsable'
     edit:

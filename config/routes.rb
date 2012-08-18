@@ -3,7 +3,9 @@ Tareas::Application.routes.draw do
   match 'sesiones' => 'sesiones#create', via: :post
   match 'sesiones' => 'sesiones#destroy', as: 'cerrar_sesion', via: :delete
 
-  resources :responsables
+  resources :responsables do
+    resources :tareas, only: [:index]
+  end
 
   resources :tareas do
     put :completa, on: :member
